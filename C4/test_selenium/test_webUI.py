@@ -15,8 +15,9 @@ class TestTmp():
     def setup_method(self, method):
         #复用浏览器
         chrome_arg = webdriver.ChromeOptions()
+        # chrome_arg.binary_location = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
         chrome_arg.debugger_address = '127.0.0.1:9222'
-        self.driver = webdriver.Chrome()  # 复用浏览器()中添加 options=chrome_arg
+        self.driver = webdriver.Chrome(options=chrome_arg)  # 复用浏览器()中添加 options=chrome_arg
         self.vars = {}
 
     def teardown_method(self, method):
@@ -29,24 +30,25 @@ class TestTmp():
         基于浏览器复用,获取cookies并存入文件
         :return:
         """
-        self.driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
+        self.driver.get("https://www.baidu.com")
+        # self.driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
         cookies=self.driver.get_cookies()
         with open("tmp.text","w",encoding="utf-8") as f:
             json.dump(cookies,f)
 
 
-    def test_cookie_login(self):
-        """
-        读取文件中的cookies，利用 cookies 进行登陆
-        :return:
-        """
-        self.driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
-        with open("tmp.text", "r", encoding="utf-8") as f:
-            cookies=json.load(f)
-
-        for i in cookies:
-            self.driver.add_cookie(i)
-        self.driver.refresh()
-        sleep(6)
+    # def test_cookie_login(self):
+    #     """
+    #     读取文件中的cookies，利用 cookies 进行登陆
+    #     :return:
+    #     """
+    #     self.driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
+    #     with open("tmp.text", "r", encoding="utf-8") as f:
+    #         cookies=json.load(f)
+    #
+    #     for i in cookies:
+    #         self.driver.add_cookie(i)
+    #     self.driver.refresh()
+    #     sleep(6)
 
 
