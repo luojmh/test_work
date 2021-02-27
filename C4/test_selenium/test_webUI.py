@@ -37,18 +37,18 @@ class TestTmp():
             json.dump(cookies,f)
 
 
-    # def test_cookie_login(self):
-    #     """
-    #     读取文件中的cookies，利用 cookies 进行登陆
-    #     :return:
-    #     """
-    #     self.driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
-    #     with open("tmp.text", "r", encoding="utf-8") as f:
-    #         cookies=json.load(f)
-    #
-    #     for i in cookies:
-    #         self.driver.add_cookie(i)
-    #     self.driver.refresh()
-    #     sleep(6)
+    def test_cookie_login(self):
+        """
+        读取文件中的cookies，利用 cookies 进行登陆
+        :return:
+        """
+        self.driver.get("https://work.weixin.qq.com/wework_admin/frame#index")
+        with open("tmp.text", "r", encoding="utf-8") as f:
+            cookies=json.load(f)
+
+        for i in cookies:
+            self.driver.add_cookie(i)
+        self.driver.refresh()
+        sleep(6)
 
 
