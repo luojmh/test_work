@@ -4,7 +4,7 @@ import yaml
 
 class Calculator:
     def add(self,a,b):
-        return a+b
+        return a+b+a
 
     def div(self,a,b):
         return a/b
