@@ -14,17 +14,15 @@ class TestTmp():
     def setup_method(self, method):
         #复用浏览器
         chrome_arg = webdriver.ChromeOptions()
-        # chrome_arg.binary_location = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
         chrome_arg.debugger_address = '127.0.0.1:9222'
         self.driver = webdriver.Chrome(options=chrome_arg)  # 复用浏览器()中添加 options=chrome_arg
-        self.vars = {}
 
     def teardown_method(self, method):
         self.driver.quit()
 
 
 
-    def test_login_tmp(self):
+    def test_cookie_get(self):
         """
         基于浏览器复用,获取cookies并存入文件
         :return:
