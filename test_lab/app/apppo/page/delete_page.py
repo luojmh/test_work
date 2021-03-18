@@ -8,6 +8,7 @@ class DeleteContactPage(BasePage):
         self.findclick("//*[@text='删除成员']")
         self.findclick("//*[@text='确定']")
 
-    def verify_ok(self):
-        sleep(5)
-        self.driver.find_element("//*[@text='无搜索结果']")
+    def verify_ok(self,username):
+        sleep(2)
+        ele = self.driver.find_elements(MobileBy.XPATH, "//*[@text='{}']".format(username))
+        return len(ele)

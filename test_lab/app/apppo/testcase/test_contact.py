@@ -18,7 +18,7 @@ class TestContact:
         editpage.verify_ok()
 
     def test_deletecontact(self):
-        username='张三2'
+        username='zhangsan4'
         delepage = self.main.goto_addresslist().goto_search().search_member(username).goto_edit().goto_delete()
         delepage.delete_contact()
-        delepage.verify_ok()
+        assert delepage.verify_ok(username)==1
