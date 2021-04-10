@@ -3,17 +3,10 @@ import json
 import requests
 
 class TestAddress:
-    def setup(self):
-        self.token=self.get_token()
 
-    def get_token(self):
-        corpid="ww29f69b6f59aceec8"
-        corpsecret="KVl_yvLhGHXVEv3HX4y0nrznStVX_LDtuUCM79DFfJQ"
-        r=requests.get(f"https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid={corpid}&corpsecret={corpsecret}")
-        return r.json()["access_token"]
  # 查询用户信息
     def test_get_information(self):
-        userid="LuoJunMei"
+        userid="m7800"
         url=f"https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token={self.token}&userid={userid}"
         r=requests.get(url)
         print(r.json())
