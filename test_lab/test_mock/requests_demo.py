@@ -12,6 +12,7 @@ def request_demo():
         "https":"http://127.0.0.1:8080"
     }
     res=requests.get(url=url,params=param,proxies=proxy,verify=False)
+    print(res)
 
 if __name__=="__main__":
     request_demo()
